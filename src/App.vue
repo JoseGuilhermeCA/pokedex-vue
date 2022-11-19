@@ -1,30 +1,35 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+  <Navbar />
+  <router-view />
+
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script lang="ts">
 
-nav {
-  padding: 30px;
+import { defineComponent } from 'vue';
+import Navbar from './components/NavBar.vue'
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+export default defineComponent({
+  name: 'App',
+  components: {
+    Navbar
   }
+})
+
+
+</script>
+
+<style lang="scss">
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap');    
+
+* {
+    padding: 0;
+    margin: 0;
+    border: 0;
 }
+
+body{
+  font-family: 'Open Sans', sans-serif; ;
+}
+
 </style>
