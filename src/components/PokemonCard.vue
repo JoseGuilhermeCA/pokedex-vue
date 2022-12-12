@@ -10,7 +10,7 @@
             </div>
         </div>
 
-        <div class="foto"> <img src={pokemonUrl.front_default}></div>
+        <div class="foto"> <img v-bind:src="pokemonUrl.sprites.front_default"></div>
     </div>
 </template>
 
