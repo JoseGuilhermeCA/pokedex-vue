@@ -1,6 +1,9 @@
 <template>
 
-<PokemonCard v-for="(pokemon) in pkm" :name="pokemon.name" :url="pokemon.url" v-bind:key="pokemon.name" />
+    <div class="teste">
+        <PokemonCard v-for="(pokemon) in pkm" :name="pokemon.name" :url="pokemon.url" v-bind:key="pokemon.name" />
+    </div>
+
 
 </template>
 
@@ -14,17 +17,17 @@ export default defineComponent({
 
     components: {
         PokemonCard
-    },  
+    },
 
-    beforeMount () {
+    beforeMount() {
         api.get("/pokemon?limit=181")
-                    .then(response => {
-                        console.log(response)
-                        response.data.results.map((e: any) => {
-                            this.pkm.push(e)
-                            
-                        })
-                });
+            .then(response => {
+                console.log(response)
+                response.data.results.map((e: any) => {
+                    this.pkm.push(e)
+
+                })
+            });
     },
 
     data() {
@@ -33,9 +36,13 @@ export default defineComponent({
     },
 
     methods: {
-       
+
     },
 })
 
 
 </script>
+
+<style lang="scss">
+
+</style>
