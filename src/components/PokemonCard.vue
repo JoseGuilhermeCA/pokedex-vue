@@ -149,7 +149,7 @@ export default defineComponent({
     },
     computed: {
         cssVars() {
-            console.log(this.typeColor)
+            
             return {
                 '--bg-color': this.typeColor,
                 '--type_bg-color': this.backgroundTypeColor,

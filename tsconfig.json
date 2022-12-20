@@ -18,10 +18,9 @@
       "webpack-env"
     ],
     "paths": {
-      "@/*": [
-        "src/*"
-      ]
+      "@/*": ["./src/*"]
     },
+    
     "lib": [
       "esnext",
       "dom",
@@ -34,8 +33,9 @@
     "src/**/*.tsx",
     "src/**/*.vue",
     "tests/**/*.ts",
-    "tests/**/*.tsx"
-, "src/services/api.js", "src/services/api.js"  ],
+    "tests/**/*.tsx",
+    "src/**/*", "src/**/*.vue"
+, "src/services/api.js", "src/services/api.js", "decs.d.ts"  ],
   "exclude": [
     "node_modules"
   ]
