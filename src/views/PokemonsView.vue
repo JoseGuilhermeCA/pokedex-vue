@@ -1,8 +1,10 @@
 <template>
-    <div class="pokemons">
-      <h1>This is an about pokemon page</h1>
-      <Pokemon/>
-    </div>
+  <div class="pokemons">
+    <h1>This is an about pokemon page</h1>
+    <Pokemon />
+  </div>
+
+
 </template>
 
 <script lang="ts">
@@ -15,7 +17,12 @@ export default defineComponent({
   components: {
     Pokemon
   }
-  
+
 })
 </script>
+
+
+<style lang="scss">
+
+</style>
   

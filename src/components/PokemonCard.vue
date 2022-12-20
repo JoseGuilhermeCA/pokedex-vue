@@ -163,9 +163,9 @@ export default defineComponent({
 .card {
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;600&display=swap');
 
-    margin: 20px;
+    
     box-sizing: border-box;
-    width: 220px;
+    width: 100%;
     height: 160px;
     border-radius: 15px;
     display: flex;
