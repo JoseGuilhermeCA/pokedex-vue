@@ -33,25 +33,30 @@
 
     </div>
 
-    <div>
-        <div class="detailsContainer__on" v-if="detailsCheck" v-on:click="detailsCheck = false">
 
-            <div class="detailsContainerContent">
-                <div class="buttonDiv">
-                    <button class="detailsButton" v-on:click="detailsCheck = false">
-                        <img src="../assets/xButton.png">
-                    </button>
-                </div>
-
-                <DetailsPokemon class="detailsComponent" :url="this.detailsUrl" :name="this.detailsName"
-                    v-on:click="cancelBubble" />
-
-            </div>
-
+    <div v-if="detailsCheck" class="detailsContainer__on">
+        <div class="close-button" :click="detailsCheck = !detailsCheck">
+            X
         </div>
 
-
+        <DetailsPokemon class="detailsComponent" :url="this.detailsUrl" :name="this.detailsName" />
     </div>
+
+    <!-- <div v-bind:class="[detailsCheck ? detailsContainer_   _on : detailsContainer__off]" v-show="detailsCheck == true"
+        v-on:click="buttonClose(detailsCheck)">
+        <div class="buttonDiv">
+            <button class="detailsButton">
+                <p>xxx</p>
+            </button>
+        </div> -->
+
+
+
+
+    <!-- </div> -->
+
+
+
 
     <div class="container">
 
@@ -121,8 +126,7 @@ export default defineComponent({
     data() {
         return {
             pkm: [] as unknown as pkmInterface, offset: 0, page: 1, search: "", pkmCompleteList: [] as unknown as pkmInterface, pkmFiltredList: [] as unknown as pkmInterface,
-            selected: 'null', detailsUrl: '', detailsName: '', detailsCheck: false
-        }
+            selected: 'null', detailsUrl: '', detailsName: '', detailsCheck: false }
     },
     methods: {
         updatePagination(x: string) {
@@ -247,18 +251,18 @@ export default defineComponent({
         },
 
         teste(pokemon: any) {
+            console.log(pokemon)
+            console.log()
             this.detailsUrl = pokemon.url
             this.detailsName = pokemon.name
             this.detailsCheck = true
+            document.getElementById
+            console.log(this.detailsCheck)
         },
 
         buttonClose(detailsCheck: any) {
-            this.detailsCheck = false
+            detailsCheck = true
             console.log(detailsCheck)
-        },
-        cancelBubble(e: Event) {
-            e.preventDefault();
-            e.stopPropagation()
         }
 
 
@@ -270,8 +274,6 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-@import url('https://fonts.googleapis.com/css2?family=Lilita+One&display=swap');
-
 .divBusca {
     margin-left: 36px;
     border: solid 1px;
@@ -337,21 +339,12 @@ export default defineComponent({
 
 
 .detailsContainer__on {
-
     display: flex;
     justify-content: center;
-    position: fixed;
-    inset: 0;
-    z-index: 4;
-    align-items: center;
-    background-color: rgba(0, 0, 0, 0.2);
 
-    .detailsContainerContent{
-        display: flex;
-        align-items: center;
-    }
+
+
     .detailsComponent {
-
         position: absolute;
         z-index: 99;
 
@@ -359,22 +352,18 @@ export default defineComponent({
 
     .buttonDiv {
         display: flex;
-        margin-top: -55%;
-
-        width: 800px;
-        justify-content: flex-end;  
+        margin-top: -7%;
+        width: 1600px;
+        justify-content: flex-end;
 
         .detailsButton {
 
-
-            width: 100px;
-            height: 100px;
-            background-color: transparent;
-
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            position: absolute;
             z-index: 99;
 
-
-            img {}
         }
     }
 
