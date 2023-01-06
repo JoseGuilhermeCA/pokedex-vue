@@ -30,10 +30,10 @@ export default defineComponent({
     props: {
         name: String,
         url: String,
-        
+
     },
     data() {
-        return { pokemonUrl: {} as any, pokemonId: "" as any, pokemonType: "" as any, typeList: [] as any, typeColor: "" as string, backgroundTypeColor: "white" as string, fontTypeColor: "black"}
+        return { pokemonUrl: {} as any, pokemonId: "" as any, pokemonType: "" as any, typeList: [] as any, typeColor: "" as string, backgroundTypeColor: "white" as string, fontTypeColor: "black" }
     },
     beforeMount() {
         axios.get(`${this.url}`)
@@ -41,12 +41,9 @@ export default defineComponent({
                 this.pokemonUrl = JSON.parse(JSON.stringify(response.data))
                 this.typeList = this.pokemonUrl.types
                 this.pokemonCardColorPicker(this.typeList[0].type.name)
-
-
             })
             .catch(error => {
                 console.log(error)
-                console.log('nao funcionou iiiiiiiiii')
             })
 
     },
@@ -60,9 +57,6 @@ export default defineComponent({
                 return `#${crudeId}`
             }
         },
-
-
-        
         pokemonTypeTranslate(type: string) {
             if (type === "grass") {
 
@@ -158,7 +152,6 @@ export default defineComponent({
     },
     computed: {
         cssVars() {
-
             return {
                 '--bg-color': this.typeColor,
                 '--type_bg-color': this.backgroundTypeColor,
@@ -171,8 +164,6 @@ export default defineComponent({
 <style lang="scss" scoped>
 .card {
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;600&display=swap');
-
-
     box-sizing: border-box;
     width: 100%;
     height: 160px;
@@ -180,7 +171,6 @@ export default defineComponent({
     display: flex;
     flex-direction: row;
     background-color: var(--bg-color);
-
     padding-right: 10px;
 
     .ladoEsquerdo {
@@ -222,15 +212,12 @@ export default defineComponent({
         padding: 0px 4.5px 0px 4.5px;
 
         .typexx {
-
-
             p {
                 margin-left: 10px
             }
         }
 
     }
-
     .foto {
 
         display: flex;
@@ -243,8 +230,6 @@ export default defineComponent({
             width: 100%;
             height: 100%;
         }
-
-
     }
 }
 </style>

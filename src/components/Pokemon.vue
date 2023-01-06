@@ -30,9 +30,7 @@
             <option value="10002"> SOMBRA </option>
 
         </select>
-
     </div>
-
     <div>
         <div class="detailsContainer__on" v-if="detailsCheck" v-on:click="detailsCheck = false">
 
@@ -42,23 +40,17 @@
                         <img src="../assets/xButton.png">
                     </button>
                 </div>
-
                 <DetailsPokemon class="detailsComponent" :url="this.detailsUrl" :name="this.detailsName"
                     v-on:click="cancelBubble" />
-
             </div>
-
         </div>
-
-
     </div>
-
     <div class="container">
 
         <PokemonCard v-if="search == '' && selected == 'null'" v-for="(pokemon) in pkm" :name="pokemon.name"
-            :url="pokemon.url" v-bind:key="pokemon.name" v-on:click="teste(pokemon)" />
+            :url="pokemon.url" v-bind:key="pokemon.name" v-on:click="detailsPush(pokemon)" />
         <PokemonCard v-if="search || selected" v-for="(pokemon) in pkmFiltredList" :name="pokemon.name"
-            :url="pokemon.url" v-bind:key="pokemon.name" v-on:click="teste(pokemon)" />
+            :url="pokemon.url" v-bind:key="pokemon.name" v-on:click="detailsPush(pokemon)" />
     </div>
 
     <div class="buttons">
@@ -78,9 +70,6 @@
             </button>
         </div>
     </div>
-
-
-
 </template>
 
 <script lang="ts">
@@ -89,7 +78,6 @@ import api from '@/services/api';
 import PokemonCard from './PokemonCard.vue';
 import { pkmInterface } from '../interfaces/pkmInterface';
 import DetailsPokemon from '../components/DetailsPokemon.vue'
-
 
 export default defineComponent({
     name: "Pokemon-vue",
@@ -113,11 +101,7 @@ export default defineComponent({
                     this.pkmCompleteList.push(e)
                 })
             });
-
-
     },
-
-
     data() {
         return {
             pkm: [] as unknown as pkmInterface, offset: 0, page: 1, search: "", pkmCompleteList: [] as unknown as pkmInterface, pkmFiltredList: [] as unknown as pkmInterface,
@@ -137,20 +121,14 @@ export default defineComponent({
             if (this.page == 9) {
                 api.get(`/pokemon?limit=7&offset=${this.offset}`)
                     .then(response => {
-
                         this.pkm = response.data.results
-
                     });
-
             } else {
                 api.get(`/pokemon?limit=18&offset=${this.offset}`)
                     .then(response => {
-
-                        this.pkm = response.data.results
-
+                       this.pkm = response.data.results
                     });
             }
-
         },
         searchFilter() {
             return (
@@ -174,9 +152,7 @@ export default defineComponent({
             )
         },
         typeFilter() {
-
             let n = 0
-
             if (this.selected === '1') {
                 n = 22
             } else if (this.selected === '2') {
@@ -217,12 +193,9 @@ export default defineComponent({
             if (this.selected != null) {
                 let i = 0
                 let x = 0
-
-
-
                 api.get(`/type/${this.selected}/`)
                     .then(response => {
-                        //console.log(response.data.pokemon[0].pokemon)
+
                         this.pkmFiltredList = [{}]
                         response.data.pokemon.map((e: any) => {
                             console.log(e)
@@ -234,19 +207,12 @@ export default defineComponent({
                                     this.pkmFiltredList.push(e.pokemon)
                                     i++
                                 }
-
-                                //console.log(this.pkmFiltredList)
-
                             }
-
                         })
                     });
-
             }
-
         },
-
-        teste(pokemon: any) {
+        detailsPush(pokemon: any) {
             this.detailsUrl = pokemon.url
             this.detailsName = pokemon.name
             this.detailsCheck = true
@@ -260,12 +226,7 @@ export default defineComponent({
             e.preventDefault();
             e.stopPropagation()
         }
-
-
     },
-    computed: {
-
-    }
 })
 </script>
 
@@ -277,7 +238,6 @@ export default defineComponent({
     border: solid 1px;
     border-radius: 15px;
     width: 300px;
-
     #txtBusca {
         float: left;
         background-color: transparent;
@@ -289,26 +249,19 @@ export default defineComponent({
         width: 260px;
     }
 }
-
 .selectFilter {
     padding: 40px;
-
-
     select {
         background-color: #F2F2F2;
         box-shadow: 2px 2px 2px rgba(33, 33, 33, 0.1);
         border-radius: 4px;
     }
-
 }
-
 .container {
-
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
     grid-gap: 20px;
     padding: 20px;
-
 }
 
 .buttons {
@@ -332,12 +285,7 @@ export default defineComponent({
     display: hidden;
     background-color: red($color: red);
 
-}
-
-
-
-.detailsContainer__on {
-
+}.detailsContainer__on {
     display: flex;
     justify-content: center;
     position: fixed;
@@ -345,39 +293,26 @@ export default defineComponent({
     z-index: 4;
     align-items: center;
     background-color: rgba(0, 0, 0, 0.2);
-
-    .detailsContainerContent{
+    .detailsContainerContent {
         display: flex;
         align-items: center;
     }
     .detailsComponent {
-
         position: absolute;
         z-index: 99;
-
     }
-
     .buttonDiv {
         display: flex;
         margin-top: -55%;
 
         width: 800px;
-        justify-content: flex-end;  
-
+        justify-content: flex-end;
         .detailsButton {
-
-
             width: 100px;
             height: 100px;
             background-color: transparent;
-
             z-index: 99;
-
-
-            img {}
         }
     }
-
-
 }
 </style>
