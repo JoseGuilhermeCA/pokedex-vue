@@ -10,8 +10,6 @@
           fracos e habilidades.</p>
       </div>
 
-
-
       <div class="buttonDiv">
         <router-link to="/pokemons">
           <button class="ListButton">
@@ -34,15 +32,12 @@
 <script lang="ts">
 
 import { defineComponent } from 'vue';
-import Button from '../components/Button.vue'
-
 export default defineComponent({
   components: {
     
   }
 
 })
-
 </script>
 
 <style lang="scss">

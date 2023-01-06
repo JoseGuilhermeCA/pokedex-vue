@@ -14,7 +14,7 @@ module.exports = {
   rules: {
     '@typescript-eslint/ban-types': 'off',
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
-    'no-deimage.pngugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
+    'no-deimage.pngugger': 'off',
     'vue/no-use-v-if-with-v-for': 'off'
   }
 }

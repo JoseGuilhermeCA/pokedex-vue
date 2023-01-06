@@ -8,8 +8,6 @@
                     <div class="typexx_Details">
                         <p>
                             {{ pokemonTypeTranslate(item.type.name) }}
-
-
                         </p>
                     </div>
                 </div>
@@ -20,11 +18,7 @@
             <div class="headerRightSide_Details">
                 <div class="nomePokemon_Details"> {{ name }} </div>
                 <div class="idPokemon_Details"> {{ pokemonIdSintax(pokemonUrl.id) }} </div>
-
-
             </div>
-
-
             <div class="containerDetailsPokemon">
 
                 <div class="description_Details"> {{ description }} </div>
@@ -36,11 +30,7 @@
                             {{ (peso * 0.1).toFixed(1) }} Kg
 
                         </div>
-
-
                         <p> PESO </p>
-
-
                     </div>
                     <div class="PokemonProporties_Details">
                         <div>
@@ -52,27 +42,15 @@
 
                             <p> ALTURA </p>
                         </div>
-
-
                     </div>
-
                     <div class="PokemonProporties_Details">
                         <div> {{ hab }} </div>
                         <div>
                             <p> Poder Principal </p>
                         </div>
-
-
-
                     </div>
-
                 </div>
-
-
-
                 <div class="bar">
-
-
                     <div class="powerRow">
                         <div class="statusText">
                             <p> Ataque: </p>
@@ -81,16 +59,11 @@
                         <div class="progress">
                             <div class="progress-bar pb-atk"></div>
                         </div>
-
-
                     </div>
-
                     <div class="powerRow">
                         <div class="statusText">
                             <p> Defesa: </p>
                             {{ powerStatusDef }}
-
-
                         </div>
                         <div class="progress">
 
@@ -98,21 +71,15 @@
                         </div>
 
                     </div>
-
                     <div class="powerRow">
                         <div class="statusText">
                             <p> VL Ataque: </p>
                             {{ powerStatusVlAtq }}
-
-
                         </div>
-
                         <div class="progress">
                             <div class="progress-bar pb-velAtk"></div>
                         </div>
-
                     </div>
-
                     <div class="powerRow">
                         <div class="statusText">
                             <p>Total: </p>
@@ -127,21 +94,9 @@
                     </div>
                 </div>
 
-
-
-
-
             </div>
         </div>
-
-
-
-
-
     </div>
-
-
-
 
 </template>
 <script lang="ts">
@@ -185,20 +140,11 @@ export default defineComponent({
                 this.barProgressColorPickerVelAtk();
                 this.barProgressColorPickerTotal()
 
-
-
-
-
-
-
-
             })
             .catch(error => {
                 console.log(error)
-                console.log('Não foi kkk')
+                
             })
-
-
 
     },
     methods: {
@@ -212,12 +158,9 @@ export default defineComponent({
             }
         },
 
-
-
         pokemonTypeTranslate(type: string) {
             if (type === "grass") {
-
-                return "Planta"
+             return "Planta"
             } else if (type == "normal") {
                 return "Comum"
             } else if (type == "fighting") {
@@ -306,57 +249,35 @@ export default defineComponent({
                 this.typeColor = "#B97FC9"
             }
         },
-
-
         barProgressColorPicker() {
-            // this.powerStatusAtk
+            
             if (this.powerStatusAtk > 80) {
                 this.barProgressColorAtk = '#48D0B0'
-
-
             } else {
                 this.barProgressColorAtk = '#FB6C6C'
-
             }
         },
-
         barProgressColorPickerDef() {
             if (this.powerStatusDef > 80) {
                 this.barProgressColorDef = '#48D0B0'
-
-
             } else {
                 this.barProgressColorDef = '#FB6C6C'
-
             }
         },
-
         barProgressColorPickerVelAtk() {
             if (this.powerStatusVlAtq > 80) {
                 this.barProgressColorVelAtk = '#48D0B0'
-
-
             } else {
                 this.barProgressColorVelAtk = '#FB6C6C'
-
             }
         },
-
         barProgressColorPickerTotal() {
             if (this.powerStatusTotal > 240) {
                 this.barProgressColorTotal = '#48D0B0'
-
-
             } else {
                 this.barProgressColorTotal = '#FB6C6C'
-
             }
         },
-
-
-
-
-
     },
     computed: {
         cssVars() {
@@ -388,24 +309,15 @@ export default defineComponent({
             } else {
                 powerRowStatusTotal = this.powerStatustotalBarProgress
             }
-
-
-
-
             return {
-
                 '--bar-progress-colorAtk': this.barProgressColorAtk,
-
-
                 '--bar-progress-colorDef': this.barProgressColorDef,
                 '--bar-progress-colorVlAtk': this.barProgressColorVelAtk,
                 '--bar-progress-colorTotal': this.barProgressColorTotal,
-
                 '--bar-progressAtk': `${powerRowStatusAtk}%`,
                 '--bar-progressDef': `${powerRowStatusDef}%`,
                 '--bar-progressVelAtk': `${powerRowStatusVel}%`,
                 '--bar-progressTotal': `${powerRowStatusTotal}%`,
-
                 '--bg-color': this.typeColor,
                 '--type_bg-color': this.backgroundTypeColor,
                 '--font_bg-color': this.fontTypeColor
@@ -417,8 +329,6 @@ export default defineComponent({
 <style lang="scss" scoped>
 .card_Details {
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;600&display=swap');
-
-
     box-sizing: border-box;
     width: 100%;
     max-width: 800px;
@@ -427,11 +337,9 @@ export default defineComponent({
     display: flex;
     flex-direction: row;
     background-color: white;
-
     box-shadow: 4px 4px 8px rgba(1, 28, 64, 0.2);
 
-
-    .containerDetailsPokemon{
+    .containerDetailsPokemon {
         padding-right: 38px;
     }
 
@@ -476,9 +384,6 @@ export default defineComponent({
             justify-content: space-between;
             align-items: center;
         }
-
-
-
         .PokemonProporties_Details {
             font-size: 14px;
             display: flex;
@@ -486,14 +391,14 @@ export default defineComponent({
             justify-content: space-between;
             gap: 5px;
             text-transform: capitalize;
-            
+
             border-right: 1px solid #E0E0E0;
 
-            &:nth-child(2){
+            &:nth-child(2) {
                 padding: 0 24px;
             }
 
-            &:last-child{
+            &:last-child {
                 padding-left: 24px;
                 border-right: 0;
             }
@@ -506,23 +411,18 @@ export default defineComponent({
             }
 
             p {
-
                 opacity: 0.2;
             }
 
-           
-            .regua{
+            .regua {
                 max-width: 8px;
             }
 
-            .balanca{
+            .balanca {
                 max-width: 16px;
             }
         }
     }
-
-
-
     .bar {
         margin-top: 32px;
         display: flex;
@@ -531,7 +431,7 @@ export default defineComponent({
 
         .powerRow {
             display: grid;
-            grid-template-columns: 2fr 5fr ;
+            grid-template-columns: 2fr 5fr;
             align-items: center;
 
         }
@@ -545,15 +445,12 @@ export default defineComponent({
         }
 
     }
-
-    .progress {
+        .progress {
         border-radius: 110px;
-        
+
         height: 5px;
         background-color: #F4F5F4;
         margin-left: 12px;
-
-
 
         .progress-bar {
             border-radius: 110px;
@@ -582,26 +479,16 @@ export default defineComponent({
             background-color: var(--bar-progress-colorTotal);
         }
 
-
-
     }
-
-   
-
-
     .description_Details {
         margin-top: 20px;
         font-size: 14px;
     }
-
-
     .idPokemon_Details {
 
         font-family: 'Inter', sans-serif;
         font-weight: 500;
         font-size: 24px;
-
-
         display: flex;
         justify-content: flex-end;
         color: var(--bg-color);
@@ -615,7 +502,7 @@ export default defineComponent({
         text-transform: capitalize;
         color: black;
 
-        @media(min-width: 1368px){
+        @media(min-width: 1368px) {
             font-size: 38px;
         }
     }
@@ -631,8 +518,6 @@ export default defineComponent({
 
         margin-top: 5px;
         padding: 0px 4.5px 0px 4.5px;
-
-
         .typexx_Details {
 
 
@@ -642,12 +527,8 @@ export default defineComponent({
         }
 
     }
-
     .foto_Details {
-
-
         display: flex;
-
         justify-content: center;
         align-items: center;
         margin: 5px;
@@ -660,10 +541,6 @@ export default defineComponent({
             width: 100%;
             height: 100%;
         }
-
-
     }
-
-
 }
 </style>

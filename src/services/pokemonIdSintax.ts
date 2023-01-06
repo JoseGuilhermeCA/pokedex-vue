@@ -7,5 +7,3 @@ export  function pokemonIdSintax(crudeId: number) {
         return `#${crudeId}`
     }
 }
-
-

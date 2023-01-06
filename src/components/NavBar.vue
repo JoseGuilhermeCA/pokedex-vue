@@ -49,7 +49,6 @@ export default defineComponent({
         height: 100%;
     }
 }
-
 nav {
     box-shadow: 0px 4px 16px rgba(1, 28, 64, 0.2);
     display: flex;
@@ -60,10 +59,6 @@ nav {
     ul {
         display: flex;
         margin-right: 310px;
-        
-
-     
-       
 
         li {
 

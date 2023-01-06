@@ -16,27 +16,16 @@
       <a href="https://github.com/JoseGuilhermeCA"> GITHUB </a>
 
     </div>
-
-
   </div>
-
-
-
-
 </template>
   
 <script lang="ts">
 import { defineComponent } from 'vue';
-import DetailsPokemon from '../components/DetailsPokemon.vue'
-
-
 export default defineComponent({
-
 
 
 })
 </script>
-
 
 <style lang="scss">
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
@@ -77,10 +66,7 @@ export default defineComponent({
   #icon {
     max-width: 30px;
   }
-
-
 }
-
 .imgContact {
 
   max-width: 300px;
