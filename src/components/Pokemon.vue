@@ -26,8 +26,7 @@
             <option value="16"> DRAGÃO </option>
             <option value="17"> NOTURNO </option>
             <option value="18"> FADA </option>
-            <option value="10001"> DESCONHECIDO </option>
-            <option value="10002"> SOMBRA </option>
+            
 
         </select>
     </div>
@@ -135,17 +134,7 @@ export default defineComponent({
                 this.pkmCompleteList.filter((element) => {
                     if (element.name?.toLowerCase().includes(this.search.toLowerCase())) {
                         this.pkmFiltredList.push(element)
-
-
-                        //console.log(JSON.parse(JSON.stringify(element)))    
-
                     }
-
-
-
-                    //console.log(element.name .toLowerCase() .includes(this.search.toLowerCase()))
-
-
                 }
 
                 ) || []
@@ -234,6 +223,7 @@ export default defineComponent({
 @import url('https://fonts.googleapis.com/css2?family=Lilita+One&display=swap');
 
 .divBusca {
+    margin-top: 50px;
     margin-left: 36px;
     border: solid 1px;
     border-radius: 15px;
